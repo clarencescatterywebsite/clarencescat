@@ -613,11 +613,35 @@ img {
 
 
 
-/* Mobile-specific background position */
-@media (max-width: 768px) {
-  body.home-page {
-    background-position: left center; /* anchor to left */
-    background-size: cover;           /* fill the screen, cropping right if needed */
-  }
+/* ===== HOME PAGE BACKGROUND ===== */
+body.home-page {
+  background-image: url("https://i.ibb.co/LDWkMBD6/Untitled-design-1.jpg");
+  background-repeat: no-repeat;
+  background-attachment: scroll; /* fixed can be tricky on mobile */
+  background-position: top left; /* align to top-left of the image */
+  background-size: cover;        /* fill the viewport */
+  color: #fff;
+  position: relative;
+}
+
+/* Dark overlay for readability */
+body.home-page::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.45);
+  z-index: -1;
+}
+
+/* Remove inner page backgrounds for home */
+body.home-page .page,
+body.home-page #home.page,
+body.home-page section.page {
+  background-color: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
 }
 

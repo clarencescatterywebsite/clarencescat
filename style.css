@@ -613,18 +613,18 @@ img {
 
 
 
-/* ===== HOME PAGE BACKGROUND ===== */
+/* Home page background */
 body.home-page {
   background-image: url("https://i.ibb.co/LDWkMBD6/Untitled-design-1.jpg");
   background-repeat: no-repeat;
-  background-attachment: scroll; /* fixed can be tricky on mobile */
-  background-position: top left; /* align to top-left of the image */
-  background-size: cover;        /* fill the viewport */
+  background-attachment: scroll; /* or 'fixed' if you want parallax */
+  background-position: center top;
+  background-size: cover;
   color: #fff;
-  position: relative;
+  position: relative; /* needed for overlay z-index */
 }
 
-/* Dark overlay for readability */
+/* Overlay for darkening the background */
 body.home-page::before {
   content: "";
   position: fixed;
@@ -632,16 +632,13 @@ body.home-page::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.45);
-  z-index: -1;
+  background: rgba(0,0,0,0.45); /* adjust opacity if needed */
+  z-index: 0; /* ensure it stays behind content */
 }
 
-/* Remove inner page backgrounds for home */
-body.home-page .page,
-body.home-page #home.page,
-body.home-page section.page {
-  background-color: transparent !important;
-  box-shadow: none !important;
-  border: none !important;
+/* Make home content appear above overlay */
+#home, .home-top, .home-bottom {
+  position: relative;
+  z-index: 1;
 }
 

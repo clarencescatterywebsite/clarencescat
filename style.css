@@ -613,32 +613,3 @@ img {
 
 
 
-/* Home page background */
-body.home-page {
-  background-image: url("https://i.ibb.co/LDWkMBD6/Untitled-design-1.jpg");
-  background-repeat: no-repeat;
-  background-attachment: scroll; /* or 'fixed' if you want parallax */
-  background-position: center top;
-  background-size: cover;
-  color: #fff;
-  position: relative; /* needed for overlay z-index */
-}
-
-/* Overlay for darkening the background */
-body.home-page::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.45); /* adjust opacity if needed */
-  z-index: 0; /* ensure it stays behind content */
-}
-
-/* Make home content appear above overlay */
-#home, .home-top, .home-bottom {
-  position: relative;
-  z-index: 1;
-}
-

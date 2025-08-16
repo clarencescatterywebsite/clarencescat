@@ -611,5 +611,12 @@ img {
 
 
 
+/* Mobile homepage background */
+@media (max-width: 768px) {
+  body.home-page {
+    background: url("https://i.ibb.co/zTWPrqg7/Untitled-design-1-1.jpg") no-repeat center center fixed !important;
+    background-size: cover !important;
+  }
+}
 
 

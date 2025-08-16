@@ -608,3 +608,60 @@ img {
     max-width: 100%; /* Take almost full width on phones */
   }
 }
+
+
+
+
+
+/* ===== HOME PAGE FULL BACKGROUND RESPONSIVE ===== */
+body.home-page {
+  background: url("https://i.ibb.co/ZznFVDYJ/Untitled-design-1.png") no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed;
+  color: #fff;
+  position: relative;
+}
+
+/* Dark overlay for readability */
+body.home-page::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.45);
+  z-index: -1;
+}
+
+/* Remove all green backgrounds inside Home */
+body.home-page .page,
+body.home-page #home.page,
+body.home-page section.page,
+body.home-page .paw-divider {
+  background-color: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  body.home-page {
+    background-position: center center;
+  }
+}
+
+@media (max-width: 768px) {
+  body.home-page {
+    background-position: left center; /* Focus on left side for mobile */
+    background-attachment: scroll;   /* Fixes cropping issues on mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  body.home-page {
+    background-size: contain; /* Ensure the whole image fits on tiny screens */
+    background-repeat: no-repeat;
+    background-position: left top;
+  }
+}

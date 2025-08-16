@@ -652,3 +652,11 @@ img {
 
 
 
+  body.home-page {
+  background: url("https://i.ibb.co/ZznFVDYJ/Untitled-design-1.png") no-repeat center center fixed !important;
+  background-size: cover !important;
+  background-color: transparent !important;
+  color: #fff;
+  position: relative;
+}
+

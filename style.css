@@ -611,12 +611,44 @@ img {
 
 
 
-/* Mobile homepage background */
+/* ===== MOBILE HOMEPAGE BACKGROUND ===== */
 @media (max-width: 768px) {
   body.home-page {
-    background: url("https://i.ibb.co/zTWPrqg7/Untitled-design-1-1.jpg") no-repeat center center fixed !important;
-    background-size: cover !important;
+    background: none !important;  /* remove default background */
+    position: relative;
+  }
+
+  /* Fixed background using pseudo-element */
+  body.home-page::before {
+    content: "";
+    position: fixed;              /* stays in place while scrolling */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("https://i.ibb.co/zTWPrqg7/Untitled-design-1-1.jpg") no-repeat center center;
+    background-size: cover;
+    z-index: -1;
+  }
+
+  /* Optional: dark overlay for readability */
+  body.home-page::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.45);
+    z-index: 0; /* just above background, behind content */
+  }
+
+  /* Make sure content is above overlay */
+  body.home-page > * {
+    position: relative;
+    z-index: 1;
   }
 }
+
 
 

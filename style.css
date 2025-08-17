@@ -365,12 +365,21 @@ form button[type="submit"]:hover {
 }
 
 /* ===== HOME PAGE FULL BACKGROUND OVERRIDE ===== */
-body.home-page {
-  background: url("https://i.ibb.co/ZznFVDYJ/Untitled-design-1.png") no-repeat center center fixed !important;
-  background-size: cover !important;
-  background-color: transparent !important;
-  color: #fff;
-  position: relative;
+
+}
+body.home-page::before {
+  content: 'homepage';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url(https://i.ibb.co/ZznFVDYJ/Untitled-design-1.png);
+  z-index: -1;
+}
+
+body {
+  padding-bottom: 2000px;
 }
 
 /* Dark overlay for readability */
@@ -609,45 +618,119 @@ img {
   }
 }
 
+  
+  /* ===== HOME PAGE FULL BACKGROUND RESPONSIVE ===== */
+body.home-page {
+  background: url("https://i.ibb.co/ZznFVDYJ/Untitled-design-1.png") no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed;
+  color: #fff;
+  position: relative;
+}
 
+/* Dark overlay for readability */
+body.home-page::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.45);
+  z-index: -1;
+}
 
-/* ===== MOBILE HOMEPAGE BACKGROUND ===== */
-@media (max-width: 768px) {
+/* Remove all green backgrounds inside Home */
+body.home-page .page,
+body.home-page #home.page,
+body.home-page section.page,
+body.home-page .paw-divider {
+  background-color: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
   body.home-page {
-    background: none !important;  /* remove default background */
-    position: relative;
-  }
-
-  /* Fixed background using pseudo-element */
-  body.home-page::before {
-    content: "";
-    position: fixed;              /* stays in place while scrolling */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url("https://i.ibb.co/zTWPrqg7/Untitled-design-1-1.jpg") no-repeat center center;
-    background-size: cover;
-    z-index: -1;
-  }
-
-  /* Optional: dark overlay for readability */
-  body.home-page::after {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.45);
-    z-index: 0; /* just above background, behind content */
-  }
-
-  /* Make sure content is above overlay */
-  body.home-page > * {
-    position: relative;
-    z-index: 1;
+    background-position: center center;
   }
 }
 
+@media (max-width: 768px) {
+  body.home-page {
+    background-position: left center; /* Focus on left side for mobile */
+    background-attachment: scroll;   /* Fixes cropping issues on mobile */
+  }
+}
 
+@media (max-width: 480px) {
+  body.home-page {
+    background-size: contain; /* Ensure the whole image fits on tiny screens */
+    background-repeat: no-repeat;
+    background-position: left top;
+  }
+}
+
+  
+  
+  /* ===== HOME PAGE BACKGROUND ===== */
+body.home-page {
+  background-image: url("https://i.ibb.co/ZznFVDYJ/Untitled-design-1.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center center;
+  background-size: cover;
+  color: #fff;
+  position: relative;
+}
+
+/* Dark overlay for readability */
+body.home-page::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.45);
+  z-index: -1;
+}
+
+/* Remove inner page backgrounds for home */
+body.home-page .page,
+body.home-page #home.page,
+body.home-page section.page {
+  background-color: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+/* Home page background */
+body.home-page {
+  background-image: url("https://i.ibb.co/LDWkMBD6/Untitled-design-1.jpg");
+  background-repeat: no-repeat;
+  background-attachment: scroll; /* or 'fixed' if you want parallax */
+  background-position: center top;
+  background-size: cover;
+  color: #fff;
+  position: relative; /* needed for overlay z-index */
+}
+
+/* Overlay for darkening the background */
+body.home-page::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.45); /* adjust opacity if needed */
+  z-index: 0; /* ensure it stays behind content */
+}
+
+/* Make home content appear above overlay */
+#home, .home-top, .home-bottom {
+  position: relative;
+  z-index: 1;
+}

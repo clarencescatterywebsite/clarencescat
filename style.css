@@ -734,3 +734,12 @@ body.home-page {
     display: none;
   }
 
+
+
+  /* Hide left and right images on mobile */
+@media (max-width: 768px) {
+  .left-image,
+  .right-images {
+    display: none;
+  }
+}

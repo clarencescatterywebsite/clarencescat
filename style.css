@@ -725,11 +725,12 @@ body.home-page {
   z-index: 1;
 }
 
-  /* Hide side images on screens 768px wide or smaller (mobiles/tablets) */
+
+
+    /* Hide images on mobile */
 @media (max-width: 768px) {
-  .side-image,
-  .right-images {
-    display: none !important;
+  .left-images,
+  .right-image {
+    display: none;
   }
-}
 

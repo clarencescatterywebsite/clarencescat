@@ -734,3 +734,12 @@ body.home-page::before {
   position: relative;
   z-index: 1;
 }
+
+  /* Hide side images on screens 768px wide or smaller (mobiles/tablets) */
+@media (max-width: 768px) {
+  .side-image,
+  .right-images {
+    display: none !important;
+  }
+}
+
